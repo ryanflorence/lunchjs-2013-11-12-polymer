@@ -10,6 +10,10 @@
       data-key="contacts"
     ></remote-list>
 
+    <form on-submit="{{addContact}}">
+      <button type="submit">add</button>
+    </form>
+
     <ul>
       <template repeat="{{contact in contacts}}">
         <li>
@@ -21,7 +25,12 @@
 
   </template>
   <script>
-    Polymer('x-app');
+    Polymer('x-app', {
+      addContact: function(event) {
+        event.preventDefault();
+        alert('hey!');
+      }
+    });
   </script>
 </polymer-element>
 
