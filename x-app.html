@@ -1,7 +1,24 @@
+<link rel="import" href="remote-list.html">
+
 <polymer-element name="x-app" attributes="name">
   <template>
     <h1>{{name}}</h1>
-    <content></content>
+
+    <remote-list
+      href="http://addressbook-api.herokuapp.com/contacts"
+      data="{{contacts}}"
+      data-key="contacts"
+    ></remote-list>
+
+    <ul>
+      <template repeat="{{contact in contacts}}">
+        <li>
+          <img src="{{contact.avatar}}" width=24>
+          {{contact.first}} {{contact.last}}
+        </li>
+      </template>
+    </ul>
+
   </template>
   <script>
     Polymer('x-app');

@@ -1,0 +1,20 @@
+<script src="bower_components/jquery/jquery.min.js"></script>
+
+<polymer-element name="remote-list" attributes="data href data-key">
+  <template></template>
+  <script>
+    Polymer('remote-list', {
+      ready: function() {
+        this.fetch();
+      },
+
+      fetch: function() {
+        $.getJSON(this.href, function(res) {
+          this.data = this['data-key'] ? res[this['data-key']] : res;
+        }.bind(this));
+      }
+    });
+  </script>
+</polymer-element>
+
+
