@@ -12,7 +12,7 @@
     ></remote-list>
 
     <form on-submit="{{addContact}}">
-      <input placeholder="first name" type="text" value="{{newContact.first}}">
+      <input placeholder="first name" id="first" type="text" value="{{newContact.first}}">
       <input placeholder="last name"  type="text" value="{{newContact.last}}">
       <input placeholder="avatar url" type="text" value="{{newContact.avatar}}">
       <button type="submit">add</button>
@@ -41,6 +41,7 @@
         $.post(url, {contact: this.newContact});
         this.contacts.push(this.newContact);
         this.newContact = {};
+        this.$.first.focus();
       }
     });
   </script>
