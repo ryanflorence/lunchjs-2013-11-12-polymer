@@ -1,4 +1,5 @@
 <link rel="import" href="remote-list.html">
+<link rel="import" href="jquery.html">
 
 <polymer-element name="x-app" attributes="name">
   <template>
@@ -36,6 +37,8 @@
 
       addContact: function(event) {
         event.preventDefault();
+        var url = 'http://addressbook-api.herokuapp.com/contacts';
+        $.post(url, {contact: this.newContact});
         this.contacts.push(this.newContact);
         this.newContact = {};
       }
