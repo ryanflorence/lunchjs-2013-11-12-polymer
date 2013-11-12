@@ -11,6 +11,9 @@
     ></remote-list>
 
     <form on-submit="{{addContact}}">
+      <input placeholder="first name" type="text" value="{{newContact.first}}">
+      <input placeholder="last name"  type="text" value="{{newContact.last}}">
+      <input placeholder="avatar url" type="text" value="{{newContact.avatar}}">
       <button type="submit">add</button>
     </form>
 
@@ -26,9 +29,15 @@
   </template>
   <script>
     Polymer('x-app', {
+      ready: function() {
+        this.contacts = this.contacts || [];
+        this.newContact = {};
+      },
+
       addContact: function(event) {
         event.preventDefault();
-        alert('hey!');
+        this.contacts.push(this.newContact);
+        this.newContact = {};
       }
     });
   </script>
