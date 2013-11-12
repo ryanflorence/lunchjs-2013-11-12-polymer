@@ -1,11 +1,14 @@
-<polymer-element name="x-kitty">
+<polymer-element name="x-kitty" attributes="width height">
 
   <template>
-    <img src="http://placekitten.com/256/256">
+    <img src="http://placekitten.com/{{width}}/{{height}}">
   </template>
 
   <script>
-    Polymer('x-kitty');
+    Polymer('x-kitty', {
+      width: 256,
+      height: 256
+    });
   </script>
 
 </polymer-element>
