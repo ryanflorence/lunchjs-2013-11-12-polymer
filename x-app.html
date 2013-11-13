@@ -21,13 +21,14 @@
     <ul>
       <template repeat="{{contact in contacts}}">
         <li>
-          <img src="{{contact.avatar}}" width=24>
+          <img src="{{contact.avatar || 'http://placekitten.com/50/50'}}" width=24>
           {{contact.first}} {{contact.last}}
         </li>
       </template>
     </ul>
 
   </template>
+
   <script>
     Polymer('x-app', {
       ready: function() {
